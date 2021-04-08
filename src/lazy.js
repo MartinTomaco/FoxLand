@@ -1,16 +1,17 @@
 const isIntersecting = (entry) => {
     return entry.isIntersecting //true dentro de la pantalla
 };
-const accion = (entry)=> {
-    const node = entry.target;
-    console.log("Holis");
-
+const loadImage = (entry)=> {
+    const container = entry.target; //container (DIV)
+    const imagen = container.firstChild;
+    const url = imagen.dataset.src;
+    imagen.src = url;
     //des registrar el node imagen (unlisten) para que deje de observar
-    observer.unobserve(node);
+    observer.unobserve(container);
 };
 
 const observer = new IntersectionObserver((entries) => {
-    entries.filter(isIntersecting).forEach(accion);
+    entries.filter(isIntersecting).forEach(loadImage);
 });
 
 export const registerImage = (image) => {
