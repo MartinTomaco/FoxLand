@@ -27,6 +27,7 @@ const addImage = () => {
   registerImage(newImage);
 };
 addButton.addEventListener("click", addImage);
+
 const cleanDiv = () => mountNode.innerHTML = ''
 const cleanButton = document.querySelector("#cleanButton");
 cleanButton.addEventListener('click', cleanDiv)
